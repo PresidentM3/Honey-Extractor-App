@@ -11,7 +11,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_gravity="center"
+        android:text="VFD Controll app" />
 
 
     <Button
@@ -22,12 +23,12 @@
         android:text="WIFI" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textVel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="Velocity:"
+        android:text="Velocity:>"
         android:textSize="40sp" />
 
     <SeekBar
@@ -42,10 +43,24 @@
         android:progress="0"/>
 
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/textME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp" />
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:text="@string/master_enable"
+        android:textSize="20sp" />
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 </LinearLayout>

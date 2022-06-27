@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Honey Extractor</string>
+    <string name="switchME">Switch</string>
+    <string name="master_enable">Master enable</string>
 </resources>
