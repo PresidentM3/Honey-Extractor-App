@@ -40,13 +40,16 @@ public class TCPClient implements Runnable{
 //            outputWriter.println("Hello from client!");
             outputWriter.flush();
 
-            Runnable task1 = this::receive;
-            Thread t1 = new Thread(task1);
-            t1.start();
 
             Runnable task2 = this::send;
             Thread t2 = new Thread(task2);
             t2.start();
+
+            Runnable task1 = this::receive;
+            Thread t1 = new Thread(task1);
+            t1.start();
+
+
 
         } catch (IOException e ) {
             e.printStackTrace();
@@ -63,7 +66,7 @@ public class TCPClient implements Runnable{
 
                 JSONObject data = makeJason();
                 outputWriter.println(data);
-                Log.d("Send","From CLIEND:");
+//                Log.d("Read","From CLIENT:" + data);
 
                 try {
                     TimeUnit.MILLISECONDS.sleep(500);
@@ -114,9 +117,21 @@ public class TCPClient implements Runnable{
             while(true){
                 String inStr = input.readLine();
                 Log.d("Read","From SERVER:" + inStr);
+
+                JSONObject reader = new JSONObject(inStr);
+//                String status_word = reader.getString("status_word");
+//                String actual_velocity = reader.getString("actual_velocity");
+                String actual_frequency = reader.getString("actual_frequency");
+                String DC_link_voltage = reader.getString("DC_link_voltage");
+//
+                Data.actual_frequency = Double.parseDouble(actual_frequency);
+                Data.DC_link_voltage = Double.parseDouble(DC_link_voltage);
+
+
+
             }
 
-        } catch (IOException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
 

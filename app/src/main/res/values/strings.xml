@@ -2,4 +2,10 @@
     <string name="app_name">Honey Extractor</string>
     <string name="switchME">Switch</string>
     <string name="master_enable">Master enable</string>
+    <string name="frequency">Frequency:</string>
+    <string name="actual_speed">Actual velocity:</string>
+    <string name="dc_link_v">DC-Link V:</string>
+    <string name="output_v">Output V:</string>
+    <string name="driver_temp">Driver temp:</string>
+    <string name="satus_word">SatusWord:</string>
 </resources>

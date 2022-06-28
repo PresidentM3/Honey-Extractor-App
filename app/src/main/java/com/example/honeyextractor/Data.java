@@ -11,12 +11,12 @@ public class Data {
     public static boolean master_enable;
     public static int control_word;
     public static int target_velocity;
-    public static int target_frequency = 34;
+    public static int target_frequency = 0;
     public static int operation_mode = 1;
 
     public static int status_word;
-    public static int actual_velocity;
-    public static int actual_frequency;
-    public static int DC_link_voltage;
+    public static double actual_velocity;
+    public static double actual_frequency;
+    public static double DC_link_voltage;
     public static int Output_voltage;
 }
