@@ -17,6 +17,8 @@ public class Data {
     public static int status_word;
     public static double actual_velocity;
     public static double actual_frequency;
+    public static double actual_current;
+    public static double actual_torque;
     public static double DC_link_voltage;
     public static int Output_voltage;
 }

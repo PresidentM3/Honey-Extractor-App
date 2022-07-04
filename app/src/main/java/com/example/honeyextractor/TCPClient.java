@@ -1,6 +1,10 @@
 package com.example.honeyextractor;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,12 +25,14 @@ public class TCPClient implements Runnable{
     private final int port;
     private PrintWriter outputWriter;
     private  BufferedReader input;
+    public Context mContext;
 
     Socket socket;
 
-    public TCPClient(String IP, int port) throws IOException {
+    public TCPClient(String IP, int port, Context context) throws IOException {
         this.IPaddress = IP;
         this.port = port;
+        this.mContext = context;
 
     }
 
@@ -119,14 +125,27 @@ public class TCPClient implements Runnable{
                 Log.d("Read","From SERVER:" + inStr);
 
                 JSONObject reader = new JSONObject(inStr);
-//                String status_word = reader.getString("status_word");
+                String status_word = reader.getString("status_word");
 //                String actual_velocity = reader.getString("actual_velocity");
                 String actual_frequency = reader.getString("actual_frequency");
                 String DC_link_voltage = reader.getString("DC_link_voltage");
+                String actual_current = reader.getString("actual_current");
+                String actual_torque = reader.getString("actual_torque");
+
+
 //
                 Data.actual_frequency = Double.parseDouble(actual_frequency);
                 Data.DC_link_voltage = Double.parseDouble(DC_link_voltage);
+                Data.status_word  = Integer.decode(status_word);
+                Data.actual_torque = Integer.parseInt(actual_torque);
+                Data.actual_current = Integer.parseInt(actual_current);
 
+
+
+                String filter = "MonitorData";
+                Intent intent = new Intent(filter);
+
+                LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
 
 
             }

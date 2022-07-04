@@ -8,4 +8,6 @@
     <string name="output_v">Output V:</string>
     <string name="driver_temp">Driver temp:</string>
     <string name="satus_word">SatusWord:</string>
+    <string name="actual_torque">ActualTorque:</string>
+    <string name="actual_current">ActualCurrent:</string>
 </resources>
